@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halodoc</title>
+    <link rel="stylesheet" href="./tailwind.css">
+    <style>
+        #footer{
+            background-color: #46568e;
+        }
+        #footer2{
+            background-color: #35406b;
+        }
+        #selengkapnya{
+            visibility: hidden ;
+        }
+        #artikelSelengkapnya{
+            visibility: visible;
+        }
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.button {
+  background-color: #e21313;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+  align-items: center;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+    </style>
+</head>
+<body class="">
+    <nav class=" py-1  shadow-md w-full fixed top-0 left-0 right-0 bg-white">
+        <div class="flex justify-between items-center sticky py-5 px-5 ">
+            <button id="navButton" class="flex md:hidden" onclick="showMenuBtn()">
+                <img class="w-6 h-4" src="./pict/hamburger-menu-icon.png">
+            </button>
+            <div id="" class=" flex flex-wrap justify-between">
+                <div class="w-44 mr-10">
+                    <a class="" href>
+                        <img class="" src="./pict/halodoc-logo.webp" >
+                    </a>
+                </div>
+                <div class="hidden md:flex">
+                    <ul class="flex items-center space-x-7 ml-2">
+                        <li  class="hover:text-red-600"><a href="">Beranda</a> </li>
+                        <li  class="hover:text-red-600"><a href="">Artikel</a> </li>
+                        <li  class="hover:text-red-600"><a href="">Aplikasi</a> </li>
+                        <li  class="hover:text-red-600"><a href="">Riwayat</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ml-7">
+
+            </div>
+            <button class="button rounded-3xl" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                Login
+            </button>     
+        </div>
+        <!--FORM-->
+        <div id="id01" class="modal">
+            <div class="rounded-xl">
+              <div  class="modal-content animate max-w-sm rounded-lg" action="" method="post">
+                <div class="imgcontainer items-center justify-center">
+                   <div class="relative">
+                    <div class="absolute -right-3 -top-6">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                   </div>
+                    <div class="relative">
+                        <div class="absolute left-32">
+                            <img src="./pict/profile halodoc.png" alt="Avatar" class="avatar">
+                        </div>
+                    </div>
+                </div>
+              
+                <form id="login-form" class="container mt-32">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" name="username" id="username-field" class="login-form-field"  placeholder="Enter Username" required>
+              
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="password-field" class="login-form-field" required>
+                    
+                    <button id="login-form-submit" class="button rounded" type="submit"  value="Login">Login</button>
+                    <label>
+                      <input type="checkbox" name="remember"> Remember me
+                    </label>
+                </form>
+              
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn text-white rounded bg-red-500">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+            </div>
+            </div>
+          </div>
+        <!--MENU HAMBURGER INSIDE-->
+        <div id="menu" class="hidden p-5">
+            <div class="flex justify-between py-4">
+                <div class="text-gray-400 text-sm">
+                    MENU
+                </div>
+            </div>
+            <div class="space-y-5 font-semibold">
+                <div>Beranda</div>
+                <div>Artikel</div>
+                <div>Obat & Vitamin</div>
+                <div>Tanya dokter</div>
+                <div>Rumah Sakit</div>
+                <div>Janji Medis</div>
+                <div>Aplikasi</div>
+                <div>Riwayat</div>
+            </div>
+            <div class="flex space-x-7 py-5 pt-20">
+                <div><img src="./pict/twitter-black.webp" alt="" class="w-8"></div>
+                <div><img src="./pict/instagram-black.webp" alt="" class="w-8"></div>
+                <div><img src="./pict/facebook-black.webp" alt="" class="w-8"></div>
+                <div><img src="./pict/youtube-black.webp" alt="" class="w-8"></div>
+            </div>
+            <div class="flex space-x-4">
+                <div><img src="./pict/google-play-badge.webp" alt="" class="w-32"></div>
+                <div><img src="./pict/app-store-badge.webp" alt="" class="w-32 h-10"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="items-center ">
+    <div class="bg-gray-100 mt-24">
+        <div class="m-auto max-w-screen-xl py-10 px-4">
+            <h1 class="text-3xl font-semibold">Solusi Kesehatan Terlengkap</h1>
+            <p class="py-2 flex">
+            Chat dokter, kunjungi rumah sakit, beli obat, cek lab, dan update informasi seputar kesehatan, semua bisa di Halodoc!
+            </p>
+            <!--GRID-->
+            <div class="block md:hidden">
+                <div class="space-y-4 py-5">
+                    <div class="w-52 items-center">
+                        <a href="" class="rounded justify-bewtween flex items-center justify-between text-center m-auto ">
+                            <div class="w-12 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class=" text-center items-center m-auto  text-sm font-medium border-b-2 border-red-400">
+                                <p>Chat dengan dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-52 items-center">
+                        <a href="" class="rounded justify-bewtween flex items-center justify-between text-center m-auto ">
+                            <div class="w-12 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class=" text-center items-center m-auto  text-sm font-medium border-b-2 border-red-400">
+                                <p>Chat dengan dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-52 items-center">
+                        <a href="" class="rounded justify-bewtween flex items-center justify-between text-center m-auto ">
+                            <div class="w-12 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class=" text-center items-center m-auto  text-sm font-medium border-b-2 border-red-400">
+                                <p>Chat dengan dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-52 items-center">
+                        <a href="" class="rounded justify-bewtween flex items-center justify-between text-center m-auto ">
+                            <div class="w-12 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class=" text-center items-center m-auto  text-sm font-medium border-b-2 border-red-400">
+                                <p>Chat dengan dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="w-52 items-center">
+                        <a href="" class="rounded justify-bewtween flex items-center justify-between text-center m-auto ">
+                            <div class="w-12 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class=" text-center items-center m-auto  text-sm font-medium border-b-2 border-red-400">
+                                <p>Chat dengan dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                   </div>
+            </div>
+            <div class="hidden md:flex">
+                <div class="py-2 flex space-x- ">
+                    <div class=" border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="p-4 rounded items-center justify-between text-center m-auto ">
+                            <div class="w-20 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class="m-auto pt-4 text-sm font-medium ">
+                                <p>Chat dengan <br>dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="p-4 rounded items-center justify-between text-center m-auto ">
+                            <div class="w-20 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class="m-auto pt-4 text-sm font-medium ">
+                                <p>Chat dengan <br>dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="p-4 rounded items-center justify-between text-center m-auto ">
+                            <div class="w-20 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class="m-auto pt-4 text-sm font-medium ">
+                                <p>Chat dengan <br>dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="p-4 rounded items-center justify-between text-center m-auto ">
+                            <div class="w-20 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class="m-auto pt-4 text-sm font-medium ">
+                                <p>Chat dengan <br>dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="p-4 rounded items-center justify-between text-center m-auto ">
+                            <div class="w-20 m-auto">
+                                <img src="./pict/chat denga dokter.png" alt="">
+                            </div>
+                            <div class="m-auto pt-4 text-sm font-medium ">
+                                <p>Chat dengan <br>dokter</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!--SAMBUNGKAN ASURANSIMU-->
+            <div class="my-3">
+                <a href="#" class=" justify-between items-center flex max-w-sm p-3 space-x-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ">
+                    <div class="w-10 item-center object-center ">
+                        <img src="./pict/card.png" alt="">
+                    </div>
+                    <div class="pr-3">
+                        <h2 class="mb-1 text-lg font-semibold tracking-tight text-gray-900 dark:text-white">Sambungkan Asuransimu</h2>
+                        <p class=" text-sm font-normal text-gray-700 dark:text-gray-400">Dapatkan manfaat asuransi secara langsung untuk layanan di Halodoc.</p>
+                    </div>
+                    <div class="w-8">
+                        <img src="./pict/nexteru icon.png" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--ARTIKEL HP-->
+    <div class="m-auto max-w-screen-xl px-4 pb-20">
+        <div class="text-2xl pt-8 pb-10 font-semibold">
+            <h2>Artikel Kesehatan</h2>
+        </div>
+        <div class="block md:hidden max-w-screen-md space-y-6 ">
+            <div class="flex space-x-5 ">
+                <div class="w-24">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </div>
+                <div class="space-y-1  ">
+                    <div class="text-xs text-blue-500">
+                        Hidup Sehat
+                    </div>
+                    <div class="text">
+                    5 Jenis makanan Penyebab Kista
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-5 ">
+                <div class="w-24">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </div>
+                <div class="space-y-1  ">
+                    <div class="text-xs text-blue-500">
+                        Hidup Sehat
+                    </div>
+                    <div class="text">
+                    5 Jenis makanan Penyebab Kista
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-5 ">
+                <div class="w-24">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </div>
+                <div class="space-y-1  ">
+                    <div class="text-xs text-blue-500">
+                        Hidup Sehat
+                    </div>
+                    <div class="text">
+                    5 Jenis makanan Penyebab Kista
+                    </div>
+                </div>
+            </div>
+            <!--SELENGKAPNYA-->
+            <span class=" py-8">
+                <button id="moreArticlePhone" class="py-8 font-semibold text-red-600"  onclick="selengkapnyaa()">
+                    Lebih banyak Artikel...
+                </button>
+            </span>
+            <div id="articlePhone" class="artikelSelengkapnya hidden space-y-6">
+                <div class="flex space-x-5 ">
+                    <div class="w-24">
+                        <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                    </div>
+                    <div class="space-y-1  ">
+                        <div class="text-xs text-blue-500">
+                            Hidup Sehat
+                        </div>
+                        <div class="text">
+                        5 Jenis makanan Penyebab Kista
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-5 ">
+                    <div class="w-24">
+                        <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                    </div>
+                    <div class="space-y-1  ">
+                        <div class="text-xs text-blue-500">
+                            Hidup Sehat
+                        </div>
+                        <div class="text">
+                        5 Jenis makanan Penyebab Kista
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--ARTIKEL LAPTOP-->
+        <div class="hidden md:block md:space-y-8  max-w-screen-lg pb-20">
+            <div class="flex space-x-5 ">
+                <a href="" class="w-64">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </a>
+                <div class="space-y-2">
+                    <a href="" class="text-2xl">
+                    5 Jenis makanan Penyebab Kista
+                    </a>
+                    <div class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi iusto. Provident mollitia in 
+                    </div>
+                    <a href="" class="text-sm text-blue-500">
+                    Baca Selengkapnya
+                    </a>
+                </div>
+            </div>
+            <div class="flex space-x-5">
+                <a href="" class="w-64">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </a>
+                <div class="space-y-2">
+                    <a href="" class="text-2xl">
+                    5 Jenis makanan Penyebab Kista
+                    </a>
+                    <div class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi iusto. Provident mollitia in 
+                    </div>
+                    <a href="" class="text-sm text-blue-500">
+                    Baca Selengkapnya
+                    </a>
+                </div>
+            </div>
+            <div class="flex space-x-5">
+                <a href="" class="w-64">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </a>
+                <div class="space-y-2">
+                    <a href="" class="text-2xl">
+                    5 Jenis makanan Penyebab Kista
+                    </a>
+                    <div class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi iusto. Provident mollitia in 
+                    </div>
+                    <a href="" class="text-sm text-blue-500">
+                    Baca Selengkapnya
+                    </a>
+                </div>
+            </div>
+            <div class="flex space-x-5">
+                <a href="" class="w-64">
+                    <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                </a>
+                <div class="space-y-2">
+                    <a href="" class="text-2xl">
+                    5 Jenis makanan Penyebab Kista
+                    </a>
+                    <div class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi iusto. Provident mollitia in 
+                    </div>
+                    <a href="" class="text-sm text-blue-500">
+                    Baca Selengkapnya
+                    </a>
+                </div>
+            </div>
+            <!--SELENGKAPNYA LAPTOP-->
+            <span class="py-8">
+                <button id="moreArticleLaptop" class="py-8 font-semibold text-red-600 text-lg "  onclick="selengkapnyaaLaptop()">
+                    Lebih banyak Artikel...
+                </button>
+            </span>
+            <div id="articleLaptop" class="hidden">
+                <div class="flex space-x-5">
+                    <a href="" class="w-64">
+                        <img src="./pict/5-jenis-makanan-penyebab-kista-ovarium-yang-perlu-diketahui-0-alodokter.jpg" alt="" class="rounded-xl">
+                    </a>
+                    <div class="space-y-2">
+                        <a href="" class="text-2xl">
+                        5 Jenis makanan Penyebab Kista
+                        </a>
+                        <div class="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi iusto. Provident mollitia in 
+                        </div>
+                        <a href="" class="text-sm text-blue-500">
+                        Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer id="" class="text-white">
+        <div id="footer" class="pb-6">
+            <div class="m-auto max-w-screen-xl px-4 ">
+                <img src="./pict/halodoc-footer-logo.webp" alt="" class="py-8 w-44">
+            <!--GRID FOOTER-->
+            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <p class="text-lg font-semibold py-2">
+                        Site Map
+                    </p>
+                    <div class="space-y-1 text-sm grid sm:grid-cols-1 md:grid-cols-2">
+                        <div class="space-y-1">
+                            <div><a href="">FAQ</a></div>
+                            <div><a href="">Blog</a></div>
+                            <div><a href="">Syarat & Ketentuan</a></div>
+                            <div><a href="">Kebijakan Privasi</a></div>
+                            <div><a href="">Promo</a></div>
+                        </div>
+                        <div class="space-y-1">
+                            <div><a href="">Karir</a></div>
+                            <div><a href="">Security</a></div>
+                            <div><a href="">Media</a></div>
+                            <div><a href="">Corporate Partnership</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold py-2">
+                        Layanan Pengaduan Konsumen
+                    </p>
+                    <div class="space-y-1 text-sm">
+                        <div class="space-y-3">
+                            <div>PT Media Dokter Investama <br>
+                                Jl. H.R. Rasuna Said Kav B32-33, Jakarta Selatan <br>
+                                help@halodoc.com / 021-5095-9900
+                            </div>
+                            <div>
+                                Direktorat Jenderal Perlindungan Konsumen dan Tertib Niaga <br>
+                                Kementerian Perdagangan Republik Indonesia <br>
+                                0853 1111 1010 (WhatsApp)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-lg font-semibold py-2">
+                        Download App di
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href=""><img src="./pict/google-play-badge.webp" alt="" class="w-28"></a>
+                        <a href=""><img src="./pict/app-store-badge.webp" alt="" class="w-28 h-10"></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="footer2" >
+            <div class="m-auto max-w-screen-lg px-4">
+                <div class="space-y-2 py-3 block md:flex items-center justify-between">
+                    <div class="text-lg font-semibold py-2">
+                        ©HALODOC, 2023. ALL RIGHTS RESERVED
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="text-lg font-semibold py-2">
+                            Folow kami di:
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-8"><a href=""><img src="./pict/twitter-white.webp" alt="" class="w-6"></a></div>
+                            <div class="w-8"><a href=""><img src="./pict/facebook-white.webp" alt="" class="w-3"></a></div>
+                            <div><a href=""><img src="./pict/instagram-white.webp" alt="" class="w-5"></a></div>
+                            <div><a href=""><img src="./pict/youtube-white.webp" alt="" class="w-6"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="./index.js"></script>
+</html>
