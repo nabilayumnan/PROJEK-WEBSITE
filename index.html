@@ -7,7 +7,7 @@
     <title>Halodoc</title>
     <link rel="stylesheet" href="./tailwind.css">
     <style>
-        #footer{
+        #footer1{
             background-color: #46568e;
         }
         #footer2{
@@ -144,6 +144,7 @@ span.psw {
 </head>
 <body class="">
     <nav class=" py-1  shadow-md w-full fixed top-0 left-0 right-0 bg-white">
+        <!--NAV-->
         <div class="flex justify-between items-center sticky py-5 px-5 ">
             <button id="navButton" class="flex md:hidden" onclick="showMenuBtn()">
                 <img class="w-6 h-4" src="./pict/hamburger-menu-icon.png">
@@ -164,11 +165,10 @@ span.psw {
                 </div>
             </div>
             <div class="ml-7">
-
             </div>
-            <button class="button rounded-3xl" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                <button class="button rounded-3xl" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
                 Login
-            </button>     
+                </button>     
         </div>
         <!--FORM-->
         <div id="id01" class="modal">
@@ -209,30 +209,30 @@ span.psw {
           </div>
         <!--MENU HAMBURGER INSIDE-->
         <div id="menu" class="hidden p-5">
-            <div class="flex justify-between py-4">
+            <div class="flex justify-between pt-4 pb-10">
                 <div class="text-gray-400 text-sm">
                     MENU
                 </div>
             </div>
             <div class="space-y-5 font-semibold">
-                <div>Beranda</div>
-                <div>Artikel</div>
-                <div>Obat & Vitamin</div>
-                <div>Tanya dokter</div>
-                <div>Rumah Sakit</div>
-                <div>Janji Medis</div>
-                <div>Aplikasi</div>
-                <div>Riwayat</div>
+                <div><a href="" class="hover:text-red-500">Beranda</a></div>
+                <div><a href="" class="hover:text-red-500">Artikel</a></div>
+                <div><a href="" class="hover:text-red-500">Obat & Vitamin</a></div>
+                <div><a href="" class="hover:text-red-500">Tanya dokter</a></div>
+                <div><a href="" class="hover:text-red-500">Rumah Sakit</a></div>
+                <div><a href="" class="hover:text-red-500">Janji Medis</a></div>
+                <div><a href="" class="hover:text-red-500">Aplikasi</a></div>
+                <div><a href="" class="hover:text-red-500">Riwayat</a></div>
             </div>
             <div class="flex space-x-7 py-5 pt-20">
-                <div><img src="./pict/twitter-black.webp" alt="" class="w-8"></div>
-                <div><img src="./pict/instagram-black.webp" alt="" class="w-8"></div>
-                <div><img src="./pict/facebook-black.webp" alt="" class="w-8"></div>
-                <div><img src="./pict/youtube-black.webp" alt="" class="w-8"></div>
+                <div><a href="https://twitter.com"><img src="./pict/twitter-black.webp" alt="" class="w-8"></a></div>
+                <div><a href=""><img src="./pict/instagram-black.webp" alt="" class="w-8"></a></div>
+                <div><a href=""><img src="./pict/facebook-black.webp" alt="" class="w-8"></a></div>
+                <div><a href=""><img src="./pict/youtube-black.webp" alt="" class="w-8"></a></div>
             </div>
             <div class="flex space-x-4">
-                <div><img src="./pict/google-play-badge.webp" alt="" class="w-32"></div>
-                <div><img src="./pict/app-store-badge.webp" alt="" class="w-32 h-10"></div>
+                <div><a href=""><img src="./pict/google-play-badge.webp" alt="" class="w-32"></a></div>
+                <div><a href=""><img src="./pict/app-store-badge.webp" alt="" class="w-32 h-10"></a></div>
             </div>
         </div>
     </nav>
@@ -244,7 +244,7 @@ span.psw {
             <p class="py-2 flex">
             Chat dokter, kunjungi rumah sakit, beli obat, cek lab, dan update informasi seputar kesehatan, semua bisa di Halodoc!
             </p>
-            <!--GRID-->
+            <!--CARD-->
             <div class="block md:hidden">
                 <div class="space-y-4 py-5">
                     <div class="w-52 items-center">
@@ -299,6 +299,7 @@ span.psw {
                     </div>
                    </div>
             </div>
+            <!--list-->
             <div class="hidden md:flex">
                 <div class="py-2 flex space-x- ">
                     <div class=" border-2 rounded w-36 items-center bg-white  border-gray-200 shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -371,11 +372,11 @@ span.psw {
             </div>
         </div>
     </div>
-    <!--ARTIKEL HP-->
     <div class="m-auto max-w-screen-xl px-4 pb-20">
         <div class="text-2xl pt-8 pb-10 font-semibold">
             <h2>Artikel Kesehatan</h2>
         </div>
+            <!--ARTIKEL HP-->
         <div class="block md:hidden max-w-screen-md space-y-6 ">
             <div class="flex space-x-5 ">
                 <div class="w-24">
@@ -546,7 +547,7 @@ span.psw {
 
 
     <footer id="" class="text-white">
-        <div id="footer" class="pb-6">
+        <div id="footer1" class="pb-6">
             <div class="m-auto max-w-screen-xl px-4 ">
                 <img src="./pict/halodoc-footer-logo.webp" alt="" class="py-8 w-44">
             <!--GRID FOOTER-->
@@ -623,5 +624,5 @@ span.psw {
         </div>
     </footer>
 </body>
-<script src="./index.js"></script>
 </html>
+<script src="./index.js"></script>

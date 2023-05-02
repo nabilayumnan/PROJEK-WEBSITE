@@ -1,32 +1,9 @@
-// alert('hai guys')
-
-// const hamburgermenu = document.getElementById('nav-button')
-// const menu = document.getElementById('menu')
-
-// hamburgermenu.addEventListener("click", () => {
-//      hamburgermenu.idList.toggle('active');
-//      menu.idList.toggle('active');
-//  })
-
-// function hamburger() {
-//     menu.toggleAttribute('active')
-// }
-// const hamburgerBtn = document.getElementById("hamburger-btn");
-// const mobileMenu = document.getElementById("mobile-menu");
-
-// hamburgerBtn.addEventListener("click", function () {
-//   mobileMenu.classList.toggle("hidden");
-// });
 
 const navButton = document.getElementById("navButton");
 const menu = document.getElementById("menu");
 const exit = document.getElementById("exit");
 
 
-
-// navButton.addEventListener("click", function () {
-//     menu.classList.toggle("hidden");
-//   });
 function showMenuBtn() {
     menu.classList.toggle("hidden");
 };
@@ -74,9 +51,6 @@ function showform(){
     login.classList.toggle('form')
 }
 
-// Get the modal
-var modal = document.getElementById('id01');
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -95,14 +69,9 @@ loginButton.addEventListener("click", (e) => {
     if (username === "user" && password === "webdev") {
         alert("You have successfully logged in.");
         location.reload();
-    } else {
-        alert("You input the wrong E-mail / Password");
-        location.reload();;
+    } 
+    else {
+        alert("You input the wrong E-mail / Password.");
+        
     }
 })
-// const sidebarToggle = document.querySelector(".sidebar-toggle");
-// const sidebar = document.querySelector(".sidebar");
-
-// sidebarToggle.addEventListener("click", () => {
-//   sidebar.classList.toggle("-translate")
-// })
